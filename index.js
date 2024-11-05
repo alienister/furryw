@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, "2048_extracted")));
 
 // Route to serve the main HTML file
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "2048_extracted", "2048.html"));
+  res.sendFile(path.join(__dirname, "2048_extracted", "index.html"));
 });
 
 app.listen(PORT, () => {
