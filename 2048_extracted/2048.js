@@ -319,43 +319,40 @@ function disableSelection(target) {
 window.onload = function () {
   gameObj.intiStage();
   gameObj.newBox();
-  var stage = document.getElementById("stage");
+  var cover = document.querySelector(".cover");
 
-  disableSelection(stage);
-
-  // Add touch controls for mobile devices
-  stage.addEventListener("touchstart", function (event) {
+  // Add touch controls on the cover layer for swipe detection
+  cover.addEventListener("touchstart", function (event) {
     var touch = event.touches[0];
     controller.start(touch.pageX, touch.pageY);
   });
 
-  stage.addEventListener("touchmove", function (event) {
+  cover.addEventListener("touchmove", function (event) {
     var touch = event.touches[0];
     controller.move(touch.pageX, touch.pageY);
   });
 
-  stage.addEventListener("touchend", function (event) {
+  cover.addEventListener("touchend", function () {
     controller.end();
   });
 
-  // Handle key up event
+  // Handle key up event for keyboard controls
   function keyUp(e) {
     var currKey = 0,
       e = e || event;
     currKey = e.keyCode || e.which || e.charCode;
-    var keyName = String.fromCharCode(currKey);
     switch (currKey) {
       case 37:
-        gameObj.move(0, 0);
+        gameObj.move(0, 0); // Left
         break;
       case 38:
-        gameObj.move(1, 0);
+        gameObj.move(1, 0); // Up
         break;
       case 39:
-        gameObj.move(0, 1);
+        gameObj.move(0, 1); // Right
         break;
       case 40:
-        gameObj.move(1, 1);
+        gameObj.move(1, 1); // Down
         break;
     }
   }

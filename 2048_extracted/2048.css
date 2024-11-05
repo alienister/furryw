@@ -156,7 +156,7 @@ body {
   z-index: 999;
   opacity: 0.1;
   cursor: pointer;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .row0 {
