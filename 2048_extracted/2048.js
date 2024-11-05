@@ -320,20 +320,23 @@ window.onload = function () {
   gameObj.intiStage();
   gameObj.newBox();
   var stage = document.getElementById("stage");
-  // Handle touch events
-  stage.ontouchstart = function (e) {
-    var touch = e.touches[0];
-    controller.start(touch.pageX, touch.pageY);
-  };
-  stage.ontouchmove = function (e) {
-    var touch = e.touches[0];
-    controller.move(touch.pageX, touch.pageY);
-  };
-  stage.ontouchend = function (e) {
-    controller.end();
-  };
-  // Disable text selection on the stage
+
   disableSelection(stage);
+
+  // Add touch controls for mobile devices
+  stage.addEventListener("touchstart", function (event) {
+    var touch = event.touches[0];
+    controller.start(touch.pageX, touch.pageY);
+  });
+
+  stage.addEventListener("touchmove", function (event) {
+    var touch = event.touches[0];
+    controller.move(touch.pageX, touch.pageY);
+  });
+
+  stage.addEventListener("touchend", function (event) {
+    controller.end();
+  });
 
   // Handle key up event
   function keyUp(e) {
