@@ -320,30 +320,21 @@ window.onload = function () {
   gameObj.intiStage();
   gameObj.newBox();
   var stage = document.getElementById("stage");
-  // Handle mouse down event
-  document.onmousedown = function (e) {
-    var event = e || window.event;
-    var obj = event.target || event.srcElement;
-    var x = event.clientX;
-    var y = event.clientY;
-    controller.start(x, y);
+  // Handle touch events
+  stage.ontouchstart = function (e) {
+    var touch = e.touches[0];
+    controller.start(touch.pageX, touch.pageY);
   };
-  // Handle mouse move event
-  document.onmousemove = function (e) {
-    var event = e || window.event;
-    var obj = event.target || event.srcElement;
-    var x = event.clientX;
-    var y = event.clientY;
-    controller.move(x, y);
+  stage.ontouchmove = function (e) {
+    var touch = e.touches[0];
+    controller.move(touch.pageX, touch.pageY);
   };
-  // Handle mouse up event
-  document.onmouseup = function (e) {
-    var event = e || window.event;
-    var obj = event.target || event.srcElement;
-    var x = event.clientX;
-    var y = event.clientY;
-    controller.end(x, y);
+  stage.ontouchend = function (e) {
+    controller.end();
   };
+  // Disable text selection on the stage
+  disableSelection(stage);
+
   // Handle key up event
   function keyUp(e) {
     var currKey = 0,

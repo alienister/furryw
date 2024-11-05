@@ -25,7 +25,7 @@ body {
 }
 .container {
   margin: auto;
-  width: 452px;
+  width: 678px;
   height: 100%;
   overflow: hidden;
   position: relative;
@@ -54,17 +54,17 @@ body {
   margin-top: -20px;
 }
 #score {
-  font-size: 50px;
+  font-size: 75px;
 }
 
 #addScore {
   position: absolute;
   bottom: 0px;
-  font-size: 30px;
+  font-size: 50px;
   color: #999;
   opacity: 0.8;
-  top: 4px;
-  right: 0;
+  top: 15%;
+  left: 25%;
 }
 #addScore.show {
   opacity: 0.8;
@@ -106,7 +106,28 @@ body {
 }
 
 #highScore {
-  font-size: 50px;
+  font-size: 75px;
+}
+
+#grid-container {
+  position: relative;
+}
+
+.grid-row {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 24.5%;
+}
+
+.grid-cell {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: #cdc1b4;
+  margin-left: 15px;
+  margin-top: 15px;
+  border-radius: 5%;
 }
 
 #stage {
@@ -116,11 +137,10 @@ body {
   -khtml-user-select: none;
   user-select: none;
   position: absolute;
-  width: 450px;
-  height: 450px;
-  top: 50%;
+  width: 675px;
+  height: 675px;
+  top: 25%;
   left: 0;
-  margin-top: -200px;
   z-index: 1;
 }
 
@@ -139,7 +159,7 @@ body {
 }
 
 .row0 {
-  top: 10px;
+  top: 15px;
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -147,7 +167,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .row1 {
-  top: 120px;
+  top: 180px;
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -155,7 +175,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .row2 {
-  top: 230px;
+  top: 345px;
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -163,7 +183,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .row3 {
-  top: 340px;
+  top: 510px;
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -172,7 +192,7 @@ body {
 }
 
 .cell0 {
-  left: 10px;
+  left: 15px;
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -180,7 +200,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .cell1 {
-  left: 120px;
+  left: 180px;
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -188,7 +208,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .cell2 {
-  left: 230px;
+  left: 345px;
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -196,7 +216,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .cell3 {
-  left: 340px;
+  left: 510px;
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -206,8 +226,8 @@ body {
 
 span {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 5%;
   position: absolute;
   text-align: center;
