@@ -4,11 +4,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Serve static files from the extracted game folder
-app.use(express.static(path.join(__dirname, "2048_extracted")));
+app.use(express.static(path.join(__dirname, "game_logic")));
 
 // Route to serve the main HTML file
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "2048_extracted", "index.html"));
+  res.sendFile(path.join(__dirname, "game_logic", "index.html"));
 });
 
 app.listen(PORT, () => {

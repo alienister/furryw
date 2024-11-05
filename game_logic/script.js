@@ -3,6 +3,7 @@ var gameObj = {
   // Points object to keep track of score, history, and status
   points: {
     score: 0,
+    highScore: 0,
     history: [],
     status: 1,
   },
@@ -100,6 +101,17 @@ var gameObj = {
   // Function to display game over message
   gameOver: function () {
     alert("GAVE OVER!");
+    // Save the highScore to local storage
+    this.history.push(this.points.score);
+    var highScore = localStorage.getItem("highScore");
+    if (highScore == null || this.points.score > highScore) {
+      localStorage.setItem("highScore", this.points.score);
+    }
+    // Reset the game
+    this.points.score = 0;
+    this.points.status = 1;
+    this.intiStage();
+    this.newBox();
   },
   // Function to move a box from one cell to another
   moveTo: function (obj1, obj2) {
@@ -132,8 +144,18 @@ var gameObj = {
     // obj2.boxObj.domObj.textContent = obj2.boxObj.value;
     this.points.score += obj2.boxObj.value;
     var scoreBar = document.getElementById("score");
+    var highScoreBar = document.getElementById("highScore");
+
     scoreBar.innerText = this.points.score;
     scoreBar.textContent = this.points.score;
+
+    if (this.points.score > parseInt(highScoreBar.innerText)) {
+      highScoreBar.innerText = this.points.score;
+      highScoreBar.textContent = this.points.score;
+
+      // Save the highScore to local storage
+      localStorage.setItem("highScore", this.points.score);
+    }
 
     return obj2.boxObj.value;
   },
@@ -320,6 +342,14 @@ window.onload = function () {
   gameObj.intiStage();
   gameObj.newBox();
   var cover = document.querySelector(".cover");
+
+  // Initialize high score from localStorage
+  var highScore = localStorage.getItem("highScore");
+  if (highScore === null) {
+    localStorage.setItem("highScore", 0);
+    highScore = 0;
+  }
+  document.getElementById("highScore").innerText = highScore;
 
   // Add touch controls on the cover layer for swipe detection
   cover.addEventListener("touchstart", function (event) {
