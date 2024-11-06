@@ -367,19 +367,31 @@ window.onload = function () {
   document.getElementById("highScore").innerText = highScore;
 
   // Add touch controls on the cover layer for swipe detection
-  cover.addEventListener("touchstart", function (event) {
-    var touch = event.touches[0];
-    controller.start(touch.pageX, touch.pageY);
-  });
+  cover.addEventListener(
+    "touchstart",
+    function (event) {
+      var touch = event.touches[0];
+      controller.start(touch.pageX, touch.pageY);
+    },
+    { passive: true }
+  );
 
-  cover.addEventListener("touchmove", function (event) {
-    var touch = event.touches[0];
-    controller.move(touch.pageX, touch.pageY);
-  });
+  cover.addEventListener(
+    "touchmove",
+    function (event) {
+      var touch = event.touches[0];
+      controller.move(touch.pageX, touch.pageY);
+    },
+    { passive: true }
+  );
 
-  cover.addEventListener("touchend", function () {
-    controller.end();
-  });
+  cover.addEventListener(
+    "touchend",
+    function () {
+      controller.end();
+    },
+    { passive: true }
+  );
 
   // Handle key up event for keyboard controls
   function keyUp(e) {
