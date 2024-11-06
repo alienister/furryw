@@ -107,7 +107,7 @@ var gameObj = {
     }
 
     // Reset the game
-    this.resetGame();
+    this.reset();
   },
   // Function to move a box from one cell to another
   moveTo: function (obj1, obj2) {
