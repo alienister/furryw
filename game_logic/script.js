@@ -1,10 +1,9 @@
 // Define the game object
 var gameObj = {
-  // Points object to keep track of score, history, and status
+  // Points object to keep track of score and status
   points: {
     score: 0,
     highScore: 0,
-    history: [],
     status: 1,
   },
   // Stage array to represent the game grid
@@ -102,7 +101,6 @@ var gameObj = {
   gameOver: function () {
     alert("Oopsie-woopsie! Game over! 😿 uwu");
     // Save the highScore to local storage
-    this.history.push(this.points.score);
     var highScore = localStorage.getItem("highScore");
     if (highScore == null || this.points.score > highScore) {
       localStorage.setItem("highScore", this.points.score);
