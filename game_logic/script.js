@@ -393,6 +393,15 @@ function displayFlashyComment(text) {
   const commentElement = document.createElement("div");
   commentElement.className = "fullscreen-comment";
   commentElement.textContent = text;
+
+  // Generate random positions within the viewport
+  const randomTop = Math.random() * (window.innerHeight - 100) + "px";
+  const randomLeft = Math.random() * (window.innerWidth - 100) + "px";
+
+  // Apply random positions
+  commentElement.style.top = randomTop;
+  commentElement.style.right = randomLeft;
+
   document.body.appendChild(commentElement);
 
   // Remove the element after the animation completes

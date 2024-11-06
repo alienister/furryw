@@ -481,16 +481,13 @@ div {
 
 .fullscreen-comment {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 3em;
-  color: #ffd700; /* Golden color for the comment */
+  color: #ffd700;
   text-align: center;
   opacity: 0;
   animation: flashComment 1.5s ease-out;
   z-index: 1000;
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6); /* Faint shadow for border effect */
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
 }
 
 @keyframes flashComment {
