@@ -100,7 +100,7 @@ var gameObj = {
   },
   // Function to display game over message
   gameOver: function () {
-    alert("GAVE OVER!");
+    alert("Oopsie-woopsie! Game over! 😿 uwu");
     // Save the highScore to local storage
     this.history.push(this.points.score);
     var highScore = localStorage.getItem("highScore");
