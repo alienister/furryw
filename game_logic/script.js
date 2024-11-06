@@ -100,19 +100,13 @@ var gameObj = {
   },
   // Function to display game over message
   gameOver: function () {
+    alert("Oopsie-woopsie! Game over! 😿 uwu");
     // Save the highScore to local storage
     this.history.push(this.points.score);
     var highScore = localStorage.getItem("highScore");
     if (highScore == null || this.points.score > highScore) {
       localStorage.setItem("highScore", this.points.score);
     }
-    alert("Oopsie-woopsie! Game over! 😿 uwu");
-
-    // Reset the game
-    this.points.score = 0;
-    this.points.history = [];
-    this.intiStage();
-    this.newBox();
   },
   // Function to move a box from one cell to another
   moveTo: function (obj1, obj2) {
