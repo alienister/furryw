@@ -1,15 +1,26 @@
+:root {
+  --container-width: 678px;
+  --font-size-medium: 50px;
+  --font-size-large: 75px;
+  --cell-size: 150px;
+  --stage-size: 675px;
+  --grid-margin: 15px;
+  --row0-top: 15px;
+  --row1-top: 180px;
+  --row2-top: 345px;
+  --row3-top: 510px;
+  --cell0-left: 15px;
+  --cell1-left: 180px;
+  --cell2-left: 345px;
+  --cell3-left: 510px;
+  --span-size: 150px;
+}
+
 html {
   height: 100%;
   -moz-user-select: none;
   -khtml-user-select: none;
   user-select: none;
-}
-
-p {
-  color: black;
-  font-family: "microsoft yahei";
-  font-weight: bold;
-  left: -10px;
 }
 
 body {
@@ -25,11 +36,23 @@ body {
 }
 .container {
   margin: auto;
-  width: 678px;
+  width: var(--container-width);
   height: 100%;
   overflow: hidden;
   position: relative;
   display: flex;
+}
+
+#scoreLabel {
+  position: relative;
+  top: -10px;
+  font-size: var(--font-size-medium);
+}
+
+#highScoreLabel {
+  position: relative;
+  top: -10px;
+  font-size: var(--font-size-medium);
 }
 
 .scoreBar {
@@ -54,13 +77,13 @@ body {
   margin-top: -20px;
 }
 #score {
-  font-size: 75px;
+  font-size: var(--font-size-large);
 }
 
 #addScore {
   position: absolute;
   bottom: 0px;
-  font-size: 50px;
+  font-size: var(--font-size-medium);
   color: #999;
   opacity: 0.8;
   top: 15%;
@@ -106,7 +129,7 @@ body {
 }
 
 #highScore {
-  font-size: 75px;
+  font-size: var(--font-size-large);
 }
 
 #grid-container {
@@ -122,11 +145,11 @@ body {
 
 .grid-cell {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: var(--cell-size);
+  height: var(--cell-size);
   background: #cdc1b4;
-  margin-left: 15px;
-  margin-top: 15px;
+  margin-left: var(--grid-margin);
+  margin-top: var(--grid-margin);
   border-radius: 5%;
 }
 
@@ -137,8 +160,8 @@ body {
   -khtml-user-select: none;
   user-select: none;
   position: absolute;
-  width: 675px;
-  height: 675px;
+  width: var(--stage-size);
+  height: var(--stage-size);
   top: 25%;
   left: 0;
   z-index: 1;
@@ -160,7 +183,7 @@ body {
 }
 
 .row0 {
-  top: 15px;
+  top: var(--row0-top);
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -168,7 +191,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .row1 {
-  top: 180px;
+  top: var(--row1-top);
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -176,7 +199,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .row2 {
-  top: 345px;
+  top: var(--row2-top);
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -184,7 +207,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .row3 {
-  top: 510px;
+  top: var(--row3-top);
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -193,7 +216,7 @@ body {
 }
 
 .cell0 {
-  left: 15px;
+  left: var(--cell0-left);
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -201,7 +224,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .cell1 {
-  left: 180px;
+  left: var(--cell1-left);
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -209,7 +232,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .cell2 {
-  left: 345px;
+  left: var(--cell2-left);
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -217,7 +240,7 @@ body {
   -webkit-transition: all 0.2s ease;
 }
 .cell3 {
-  left: 510px;
+  left: var(--cell3-left);
   transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -227,15 +250,14 @@ body {
 
 span {
   display: block;
-  width: 150px;
-  height: 150px;
+  width: var(--span-size);
+  height: var(--span-size);
   border-radius: 5%;
   position: absolute;
   text-align: center;
   line-height: 100px;
   cursor: pointer;
   background: #fff;
-  font-size: 43px;
   -moz-user-select: none;
   -khtml-user-select: none;
   user-select: none;
@@ -483,5 +505,47 @@ div {
   100% {
     opacity: 0;
     transform: scale(2) translate(-50%, -50%);
+  }
+}
+
+/* if height is less than 1000 pixels */
+@media screen and (max-height: 1000px) {
+  :root {
+    --container-width: calc(678px * 0.85);
+    --font-size-medium: calc(50px * 0.85);
+    --font-size-large: calc(75px * 0.85);
+    --cell-size: calc(150px * 0.85);
+    --stage-size: calc(675px * 0.85);
+    --grid-margin: calc(15px * 0.85);
+    --row0-top: calc(15px * 0.85);
+    --row1-top: calc(180px * 0.85);
+    --row2-top: calc(345px * 0.85);
+    --row3-top: calc(510px * 0.85);
+    --cell0-left: calc(15px * 0.85);
+    --cell1-left: calc(180px * 0.85);
+    --cell2-left: calc(345px * 0.85);
+    --cell3-left: calc(510px * 0.85);
+    --span-size: calc(150px * 0.85);
+  }
+}
+
+/* If height is less than 800 pixels */
+@media screen and (max-height: 800px) {
+  :root {
+    --container-width: calc(678px * 0.70);
+    --font-size-medium: calc(50px * 0.70);
+    --font-size-large: calc(75px * 0.70);
+    --cell-size: calc(150px * 0.70);
+    --stage-size: calc(675px * 0.70);
+    --grid-margin: calc(15px * 0.70);
+    --row0-top: calc(15px * 0.70);
+    --row1-top: calc(180px * 0.70);
+    --row2-top: calc(345px * 0.70);
+    --row3-top: calc(510px * 0.70);
+    --cell0-left: calc(15px * 0.70);
+    --cell1-left: calc(180px * 0.70);
+    --cell2-left: calc(345px * 0.70);
+    --cell3-left: calc(510px * 0.70);
+    --span-size: calc(150px * 0.70);
   }
 }
