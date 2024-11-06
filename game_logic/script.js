@@ -1,3 +1,23 @@
+// Replace '/log-visitor' with the actual path to your Worker endpoint
+fetch("https://odd-river-02ee.toni-heinanen.workers.dev/log-visitor", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    name: "visitor", // Customize or dynamically set these values
+    description: "Visited the homepage",
+  }),
+})
+  .then((response) => {
+    if (response.ok) {
+      console.log("Visitor details logged successfully.");
+    } else {
+      console.error("Failed to log visitor details.");
+    }
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+
 // Define the game object
 var gameObj = {
   // Points object to keep track of score, history, and status
@@ -409,5 +429,3 @@ function displayFlashyComment(text) {
     document.body.removeChild(commentElement);
   }, 1500); // Duration matches the CSS animation
 }
-
-console.log("TURSO_URL", context.env.TURSO_URL);
