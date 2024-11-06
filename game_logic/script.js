@@ -107,6 +107,9 @@ var gameObj = {
     if (highScore == null || this.points.score > highScore) {
       localStorage.setItem("highScore", this.points.score);
     }
+
+    // Reset the game
+    this.resetGame();
   },
   // Function to move a box from one cell to another
   moveTo: function (obj1, obj2) {
@@ -273,6 +276,25 @@ var gameObj = {
     if (this.isEnd()) {
       this.gameOver();
     }
+  },
+  reset: function () {
+    // Reset the game stage by clearing each cell
+    for (var i = 0; i < 4; i++) {
+      for (var j = 0; j < 4; j++) {
+        if (this.stage[i][j].boxObj) {
+          // Remove box DOM elements
+          this.stage[i][j].boxObj.domObj.remove();
+        }
+        this.stage[i][j].boxObj = null;
+      }
+    }
+    // Reset points
+    this.points.score = 0;
+    document.getElementById("score").innerText = this.points.score;
+
+    // Reinitialize the stage and add a new box to start the game
+    this.intiStage();
+    this.newBox();
   },
 
   // Initialize the game
