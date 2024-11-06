@@ -410,5 +410,4 @@ function displayFlashyComment(text) {
   }, 1500); // Duration matches the CSS animation
 }
 
-// log cloudflare turso AUTH_URL env var
-console.log("TURSO_URL", env.TURSO_URL);
+console.log("TURSO_URL", context.env.TURSO_URL);
